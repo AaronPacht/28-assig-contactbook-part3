@@ -1,0 +1,16 @@
+<div class="post">
+    <h1>Add a Contact</h1>
+    <form action="/add" method="post">
+        <input class="name" name="first_name" id="first_name" type="text" placeholder="First name">
+        <input class="name" name="last_name" id="last_name" type="text" placeholder="Last name">
+        <input class="long" name="email" id="email" type="email" placeholder="Email">
+        <input class="long" name="note" id="note" type="text" placeholder="Note">
+        <br>
+        <input id="submit" type="submit" value="Add contact">
+    </form>
+</div>
+<ul>
+    <% @contacts.each do |contact|%>
+        <li><strong><%=contact.first_name%> <%=contact.last_name%> (<%=contact.email%>)</strong><p><a href='/editContact/<%=contact.id%>'>Edit</a> | <a href='/deleteContact/<%=contact.id%>'>Delete</a></p></li>
+    <%end%>
+</ul>

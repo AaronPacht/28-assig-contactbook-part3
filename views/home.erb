@@ -1,0 +1,6 @@
+<p>There are <strong><%=@num%></strong> contacts</p>
+<ul>
+    <% @contacts.each do |contact|%>
+        <li><strong><%=contact.first_name%> <%=contact.last_name%> (<%=contact.email%>)</strong><p><a href='/editContact/<%=contact.id%>'>Edit</a> | <a href='/deleteContact/<%=contact.id%>'>Delete</a></p></li>
+    <%end%>
+</ul>

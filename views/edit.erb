@@ -1,0 +1,20 @@
+<p>There are <strong><%=@num%></strong> contacts</p>
+<ul>
+    <% @contacts.each do |contact|%>
+        <% if contact==@contact%>
+            <div class="post">
+                <h1>Edit <%=@contact.first_name%> <%=@contact.last_name%></h1>
+                <form action="/edit/<%=@contact.id%>" method="post">
+                    <input class="name" name="first_name" id="first_name" type="text" value="<%=@contact.first_name%>">
+                    <input class="name" name="last_name" id="last_name" type="text" value="<%=@contact.last_name%>">
+                    <input class="long" name="email" id="email" type="email" value="<%=@contact.email%>">
+                    <input class="long" name="note" id="note" type="text" value="<%=@contact.note%>">
+                    <br>
+                    <input id="submit" type="submit" value="Edit contact">
+                </form>
+            </div>
+        <%else%>
+            <li><strong><%=contact.first_name%> <%=contact.last_name%> (<%=contact.email%>)</strong><p><a href='/editContact/<%=contact.id%>'>Edit</a> | <a href='/deleteContact/<%=contact.id%>'>Delete</a></p></li>
+        <%end%>
+    <%end%>
+</ul>
