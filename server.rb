@@ -30,6 +30,7 @@ end
 
 get '/editContact/:id' do
     @title="edit"
+    @num=Contact.count
     @contacts=Contact.all
     @contact=Contact.find(params["id"])
     erb :edit
